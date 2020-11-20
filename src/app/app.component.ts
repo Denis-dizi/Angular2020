@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   nmbr: number = 0;
   count1: number = 0;
   count2: number = 0;
+  // (2:42)
+  password = '';
   // (2:19)
   users: any = [
     {
