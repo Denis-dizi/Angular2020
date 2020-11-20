@@ -12,7 +12,7 @@ You have clicked {{count2}} times <br>
 <button (click) = "remooveOne()">Remoove 1</button><br>
 
 <!-- (2:26:) Button not visible until count2=10 -->
-<button *ngIf="count2 >=10" (click)="clearAllClicks()">Clear all clicks</button><br><br><hr>
+<button *ngIf="count2 >=10" (click)="clearAllClicks()">Clear all clicks</button><br><hr>
 
 <!-- (2:20:) -->
 <table>
@@ -26,6 +26,7 @@ You have clicked {{count2}} times <br>
     <td>         </td>
     <td>{{user.name}}</td>
     <td>{{user.lastName}}</td>
+    <td>{{user.age}}</td> <!-- (2:56) -->
   </tr>
 </table><hr>
 
