@@ -1,0 +1,39 @@
+<!-- (1:31:) W9D1. Copied and erased original content except last row: "<router-outlet></router-outlet>"-->
+test<hr>
+{{title}}<br> {{name}} - {{lastName}} <br> {{nmbr}}
+<hr>
+<!-- (1:52:) -->
+You have clicked {{count1}} times
+<button (click) = "triggerClick()">Click me</button><br><br>
+
+<!-- (1:56:) -->
+You have clicked {{count2}} timcd web/es <br>
+<button (click) = "addOne()">Add1 </button>
+<button (click) = "remooveOne()">Remoove 1</button><br>
+
+<!-- (2:26:) Button not visible until count2=10 -->
+<button *ngIf="count2 >=10" (click)="clearAllClicks()">Clear all clicks</button><br><hr>
+
+<!-- (2:20:) -->
+<table>
+<!-- ngf -->
+  <tr *ngFor="let user of users">
+    <!-- <td>{{user.name}}</td>
+    <td>{{user.lastName}}</td> -->
+    <!-- (2:36:) -->
+    <td>{{user.name ? user.name : 'Unspecified1 :('}}</td>
+    <td>{{user.lastName ? user.lastName : 'Unspecified2 :('}}</td>
+    <td>         </td>
+    <td>{{user.name}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.age}}</td> <!-- (2:56) -->
+  </tr>
+</table><hr>
+
+<!-- (2:42) -->
+<input type="password"[(ngModel)]="password">
+<div>
+  Your password is: {{password}}
+</div><hr>
+
+<!-- <router-outlet></router-outlet> -->
