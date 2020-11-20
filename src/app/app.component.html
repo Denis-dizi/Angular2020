@@ -9,6 +9,24 @@ You have clicked {{count1}} times
 <!-- (1:56:) -->
 You have clicked {{count2}} times <br>
 <button (click) = "addOne()">Add1 </button>
-<button (click) = "remooveOne()">Remoove 1</button><br><br>
+<button (click) = "remooveOne()">Remoove 1</button><br>
 
-<router-outlet></router-outlet>
+<!-- (2:26:) Button not visible until count2=10 -->
+<button *ngIf="count2 >=10" (click)="clearAllClicks()">Clear all clicks</button><br><br><hr>
+
+<!-- (2:20:) -->
+<table>
+<!-- ngf -->
+  <tr *ngFor="let user of users">
+    <!-- <td>{{user.name}}</td>
+    <td>{{user.lastName}}</td> -->
+    <!-- (2:36:) -->
+    <td>{{user.name ? user.name : 'Unspecified1 :('}}</td>
+    <td>{{user.lastName ? user.lastName : 'Unspecified2 :('}}</td>
+    <td>         </td>
+    <td>{{user.name}}</td>
+    <td>{{user.lastName}}</td>
+  </tr>
+</table>
+
+<!-- <router-outlet></router-outlet> -->

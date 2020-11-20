@@ -12,7 +12,27 @@ export class AppComponent implements OnInit {
   nmbr: number = 0;
   count1: number = 0;
   count2: number = 0;
+  // (2:19)
+  users: any = [
+    {
+      name: "Name-1",
+      lastName: "Lastname-1"
+    }, {
+      name: "Name-2",
+      lastName: "Lastname-2"
+    }, {
+      name: "Name-3",
+      lastName: "Lastname-3"
+    }
+    // (2:36:)
+    , {
+      name: "Coolyo"
+    }, {
+      lastName: "G-Paradise"
+    }
+  ];
 
+// (1:41:~)
   ngOnInit() {
     setInterval(() => {
       this.nmbr = Math.random() * 100;
@@ -31,6 +51,9 @@ addOne() {
 remooveOne() {
   this.count2--;
 }
-
+// (2:26:)
+clearAllClicks() {
+  this.count2 = 0;
+}
 
 }
