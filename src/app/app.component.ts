@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 
   //(0:28:) W9D2
   ngOnInit() {
+    console.log("ngOnInit is running");//(1:20:)
     this.http
       .get('http://localhost/web/api/products/list.php')
       .toPromise()
