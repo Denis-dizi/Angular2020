@@ -1,6 +1,15 @@
-<!-- W9D2 -->
+<!-- (0:48:)W9D2 -->
 <div>
-
+    <table>
+        <tr *ngFor="let product of list">
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </table>
 </div>
 
 
