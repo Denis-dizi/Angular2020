@@ -37,4 +37,32 @@ export class AppComponent implements OnInit {
         }
       )
   }
+  // (1:41:)
+  deleteProduct(id: string) {
+  // (1:48:)
+  const payload = new FormData();
+  payload.append('id', id);
+  
+  // (1:41:)
+  // this.http.post('http://localhost/web/api/products/delete.php', {
+    //   id: id
+    // }).toPromise()
+    this.http.post("http://localhost/web/api/products/delete.php", payload).toPromise()
+      .then(
+        (response) => {
+          // (1:55:)
+          this.list = this.list.filter((product: any)=>product.id !==id);
+
+          console.log("Fine. Delete finded");
+        },
+        (reject) => {
+          alert(JSON.stringify(reject));
+          console.log(JSON.stringify(reject));
+          console.log("Error. Rejected for Delete.");
+        }
+      )
+    console.log(id); //prints id to console
+  }
+
+
 }

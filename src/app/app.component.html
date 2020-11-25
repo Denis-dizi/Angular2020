@@ -6,7 +6,9 @@
           <td>{{product.price}}</td>
           <td>
             <button>Edit</button>
-            <button>Delete</button>
+            <!-- <button>Delete</button> -->
+            <!-- (1:40:) -->
+            <button (click)="deleteProduct(product.id)">Delete</button>
           </td>
         </tr>
       </table>
