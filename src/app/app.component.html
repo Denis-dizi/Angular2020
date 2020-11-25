@@ -5,13 +5,30 @@
           <td>{{product.name}}</td>
           <td>{{product.price}}</td>
           <td>
-            <button>Edit</button>
+            <!-- <button>Edit</button> -->
+            <!-- (2:09:) -->
+            <button (click)="startEditProduct(product.id)">Edit</button>
             <!-- <button>Delete</button> -->
             <!-- (1:40:) -->
             <button (click)="deleteProduct(product.id)">Delete</button>
           </td>
         </tr>
       </table>
+</div>
+
+<!-- (2:20:) -->
+<div>
+<label>
+  Name:
+  <input [(ngModel)]="product.name">
+</label>
+
+<label>
+  Price:
+  <input type="number" step="0.01" [(ngModel)]="product.price">
+</label>
+
+<button>Save</button>
 </div>
 
 
