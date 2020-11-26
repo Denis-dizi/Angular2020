@@ -11,7 +11,11 @@ class ProductEdit {
         $sql = sprintf("UPDATE products SET name='%s', price = %s WHERE id = %s", $data["name"], $data["price"], $data["id"]);
 
         // var_dumb($sql);
-        DB::run($sql);
+        // DB::run($sql);
+
+        //(2:50:)
+        $id = DB::run($sql);
+        // echo json_encode(["id" => $id]);
     }
 }
 

@@ -28,11 +28,13 @@ export class AppComponent implements OnInit {
       .toPromise()
       .then(
         (response: any) => {
-          this.list = response;
-          console.log("ngOnInit is running");//(1:20:)
+          //(2:49:)
+          setTimeout(() => {
+            this.list = response; //data load from DB
+          }, 0)
+          console.log("ngOnInit is running with TimOut() funct.");//(1:20:)
           // console.log(response)
           // console.log('is found')
-
         },
         (reject) => {
           console.log(reject)
@@ -109,7 +111,7 @@ export class AppComponent implements OnInit {
             console.log(index);
             console.log("EditProduct is running.");
             this.list[index] = this.product;
-            this.product = new Product({}); //gives an error: The specified value "NaN" cannot be parsed, or is out of range.
+            this.product = new Product({}); //gives an error: The specified value "NaN" cannot be parsed, or is out of range. (2:33:) about this row
             // console.log(typeof Product);
           },
           (reject) => {
@@ -119,6 +121,19 @@ export class AppComponent implements OnInit {
       //update
     } else {
       //create
+      // (2:45:)
+      this.http.post(this.getApiUrl('add.php'), payload).toPromise()
+      .then(
+        (response: any) => {
+          this.product.id = response.id; //(2:50:)
+          this.list.push(this.product);
+          this.product = new Product({});
+          console.log("AddProduct is running.");
+        },
+        (reject) => {
+          console.log("Error. Rejected for AddProduct.");
+        }
+      )
     }
 
   }
