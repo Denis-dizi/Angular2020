@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   // list = [];
   list: any[] = []; //(:52:)
 
-  //(2:17/22:) W9D2
+  //(2:17/22:) W9D2 can be seen at (2:43:36)
   product: Product = new Product({});
 
 
@@ -23,15 +23,15 @@ export class AppComponent implements OnInit {
 
   //(0:28:) W9D2
   ngOnInit() {
-    console.log("ngOnInit is running");//(1:20:)
     this.http
       .get('http://localhost/web/api/products/list.php')
       .toPromise()
       .then(
         (response: any) => {
           this.list = response;
-          console.log(response)
-          console.log('is found')
+          console.log("ngOnInit is running");//(1:20:)
+          // console.log(response)
+          // console.log('is found')
 
         },
         (reject) => {
@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
         (response) => {
           // (1:55:)
           this.list = this.list.filter((product: any) => product.id !== id);
-          console.log("Fine. Delete finded");
+          console.log("Delete is running");
         },
         (reject) => {
           alert(JSON.stringify(reject));
@@ -82,18 +82,48 @@ export class AppComponent implements OnInit {
     this.http.get(this.getApiUrl("get.php?id=" + id))
       .toPromise()
       .then(
-        // (response: any) => {// ????????????????????????????????????????????????????????????????????
-        (response) => {
+        (response: any) => {
           this.product = new Product(response);
-          console.log("Fine. Edit finded");
+          console.log("startEditProduct is running");
         },
         (reject) => {
           alert(JSON.stringify(reject));
           console.log(JSON.stringify(reject));
-          console.log("Error. Rejected for Edit.");
+          console.log("Error. Rejected for startEditProduct.");
         }
       )
   }
+
+  // (2:29:)
+  editProduct() {
+    const payload = new FormData();
+
+    payload.append('name', this.product.name)
+    payload.append('price', "" + this.product.price)
+    if (this.product.id) {
+      payload.append('id', "" + this.product.id)
+      this.http.post(this.getApiUrl('edit.php'), payload).toPromise()
+        .then(
+          (response) => {
+            const index = this.list.findIndex((product) => product.id === this.product.id);
+            console.log(index);
+            console.log("EditProduct is running.");
+            this.list[index] = this.product;
+            this.product = new Product({}); //gives an error: The specified value "NaN" cannot be parsed, or is out of range.
+            // console.log(typeof Product);
+          },
+          (reject) => {
+            console.log("Error. Rejected for EditProduct.");
+          }
+        )
+      //update
+    } else {
+      //create
+    }
+
+  }
+
+
   // (2:11:)
   getApiUrl(endPoint: string) {
     return "http://localhost/web/api/products/" + endPoint;
@@ -101,15 +131,15 @@ export class AppComponent implements OnInit {
 
 }
 
-  //(2:17:) W9D2
+//(2:17:) W9D2
 class Product {
   price: Number;
   name: string;
-  id: Number;
+  id: string; //(2:43:)
 
   constructor(data: any) {
     this.price = Number(data.price);
     this.name = data.name;
-    this.id = Number(data.id);
+    this.id = data.id; //(2:43:)
   }
 }
