@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  // (1:46:)W10D1
+  registerFormData: any = {
+    buttonTitle: 'Register'
+  };
 
   constructor() { }
 
   ngOnInit(): void {
-    // (:49:)W10D2
+    // (:49:)W10D1
     console.log("init Register")
   }
 
