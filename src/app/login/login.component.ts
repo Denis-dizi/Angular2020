@@ -10,6 +10,8 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // (:49:)W10D2
+    console.log("init Login")
   }
 
 }
