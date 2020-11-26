@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductsListComponent } from './products/list/list.component';
+import { AccessManagmentGuard } from './helpers/access-managment.guard';
 
 const routes: Routes = [{
   // (:26:)W10D1
@@ -14,7 +15,9 @@ const routes: Routes = [{
 },{
   // (:35:)W10D1
   path: '',
-  component: ProductsListComponent
+  // (1:11:)W10D1
+  component: ProductsListComponent,
+  canActivate: [AccessManagmentGuard]
 }];
 
 @NgModule({
