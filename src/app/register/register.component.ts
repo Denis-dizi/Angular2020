@@ -18,11 +18,11 @@ export class RegisterComponent implements OnInit {
     // (:49:)W10D1
     console.log("init Register")
     // (1:52:)W10D1
-    this.registerFormData.saveFrom = this.register;
+    this.registerFormData.saveForm = this.register;
     // console.log(this.registerFormData); //(1:58:)W10D1
   }
   register() {
     console.log("trigger Register");
-    console.trace("trigger Register");
+    // console.trace("trigger Register");
   }
 }
