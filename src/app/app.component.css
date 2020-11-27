@@ -1,7 +1,9 @@
 /* (:54:)W10D1 */
 #navigation {
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    /* (2:19:)W10D1 */
+    justify-content: space-between;
     margin-bottom: 20px;
 
 }
