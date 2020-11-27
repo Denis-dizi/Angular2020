@@ -1,0 +1,15 @@
+<!-- (:44:)W10D1 -->
+<div id="navigation">
+  <div><!-- (2:19:)W10D1 -->
+    <a [routerLink]="['/']" 
+    [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Home page</a>
+
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a routerLink="/register" routerLinkActive="active">Register</a>
+  </div>
+
+  <button (click)="logOut()">Log out</button>
+</div>
+
+<!-- (:30:)W10D1 -->
+<router-outlet></router-outlet>
