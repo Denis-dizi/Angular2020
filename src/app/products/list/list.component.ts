@@ -97,7 +97,7 @@ export class ProductsListComponent implements OnInit {
             console.log(index);
             console.log("EditProduct is running.");
             this.list[index] = this.product;
-            this.product = new Product({}); //gives an error: The specified value "NaN" cannot be parsed, or is out of range. (2:33:) about this row
+            this.product = new Product({}); //gives an error: The specified value "NaN" cannot be parsed, or is out of range. (2:33:)W9D2 about this row
             // console.log(typeof Product);
           },
           (reject) => {
