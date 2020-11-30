@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +13,10 @@ export class RegisterComponent implements OnInit {
     // saveFrom: () => {}  // (1:56:)W10D1  
   };
 
-  constructor() { }
+  constructor(
+    // (1:20:) W10D2
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
     // (:49:)W10D1
@@ -24,5 +28,9 @@ export class RegisterComponent implements OnInit {
   register() {
     console.log("trigger Register");
     // console.trace("trigger Register");
+    // (1:20/24/27:) W10D2
+    this.http.post('http://localhost:8002/users/add', {}).toPromise()
+      .then((response: any) => {
+      })
   }
 }
