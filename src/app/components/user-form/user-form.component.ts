@@ -13,8 +13,14 @@ export class UserFormComponent implements OnInit {
     buttonTitle: '',
   };
   
-  // (1:50:)(2:13:)W10D1
-  saveForm = () => {}
+// (2:06:)W10D2
+user = {
+  username: '',
+  password: '',
+}
+
+  // (1:50:)(2:13:)W10D1; (2:06:)W10D2 added user: any.
+  saveForm = (user: any) => {}
   constructor(
     // (2:11:)W10D1
     private http: HttpClient,

@@ -25,11 +25,16 @@ export class RegisterComponent implements OnInit {
     this.registerFormData.saveForm = this.register;
     // console.log(this.registerFormData); //(1:58:)W10D1
   }
-  register() {
+    // (2:04/11:) W10D2 added user/payload
+  register(user: any) {
+    // const payload = new FormData();
+    // payload.append('username', user.username)
+    // payload.append('password', user.password)
+
     console.log("trigger Register");
     // console.trace("trigger Register");
     // (1:20/24/27:) W10D2
-    this.http.post('http://localhost:8002/users/add', {}).toPromise()
+    this.http.post('http://localhost:8002/users/add', user).toPromise()
       .then((response: any) => {
       })
   }
