@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     // (1:20:) W10D2
-    private http: HttpClient
+    private http: HttpClient,
+    // (2:18:) W10D2
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +28,7 @@ export class RegisterComponent implements OnInit {
     this.registerFormData.saveForm = this.register;
     // console.log(this.registerFormData); //(1:58:)W10D1
   }
-    // (2:04/11:) W10D2 added user/payload
+  // (2:04/11:) W10D2 added user/payload
   register(user: any) {
     // const payload = new FormData();
     // payload.append('username', user.username)
@@ -36,6 +39,12 @@ export class RegisterComponent implements OnInit {
     // (1:20/24/27:) W10D2
     this.http.post('http://localhost:8002/users/add', user).toPromise()
       .then((response: any) => {
+        // (2:18:) W10D2
+        if (response.user_saved) {
+          this.router.navigate(['/login']);
+        } else {
+          alert("Something went wrong")
+        }
       })
   }
 }
