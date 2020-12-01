@@ -1,0 +1,24 @@
+<p>user-form works!</p>
+<!-- (1:38:)W10D1 -->
+<!-- (2:05:)W10D2 modify all. Add user.* -->
+<div>
+    <label>
+        Username:
+
+        <input [(ngModel)]="user.username">
+    </label>
+
+    <label>
+        Password:
+
+        <input [(ngModel)]="user.password">
+    </label>
+
+    <!-- <button>Save</button> -->
+    <!-- (1:43:)W10D1 -->
+    <!-- <button>{{ data.buttonTitle }}</button> -->
+    <!-- (1:51:)W10D1 -->
+    <!-- <button (click)="data.saveForm()">{{ data.buttonTitle }}</button> -->
+    <!-- (2:14:)W10D1 -->
+    <button (click)="saveForm(user)">{{ data.buttonTitle }}</button>
+</div>
